@@ -1,0 +1,12 @@
+from scrapy import Spider
+from scrapy.selector import HtmlXPathSelector
+
+class ProductsSpider(Spider):
+	name = "categories"
+        allowed_domains = ["myntra.com"]
+        start_urls = ['http://myntra.com']
+
+	def parse(self, response):
+		categories=response.xpath('//*[@class="desktop-main"]/@data-group').extract()
+		print categories
+
