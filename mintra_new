@@ -1,0 +1,14 @@
+from scrapy import Spider
+
+from scrapy.selector import HtmlXPathSelector
+
+class MySpider(Spider):
+	name = 'categories'
+    	allowed_domains = ['http://www.myntra.com/boys-tshirts-menu?src=tNav']
+    	start_urls = ['http://www.myntra.com/boys-tshirts-menu?src=tNav']
+
+    
+
+    	def parse(self, response): # parse is the inbulit function we can not change the name
+       		name=response.xpath('//title/text()').extract()
+		print name
