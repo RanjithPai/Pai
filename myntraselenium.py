@@ -11,5 +11,5 @@ class NikeSpider(Spider):
         	self.driver = webdriver.Firefox(executable_path='/home/biodiv/geckodriver')
     		self.driver.get('http://www.myntra.com/men-tshirts?src=tNav')
 		sel=Selector(text=self.driver.page_source)
-		products=sel.xpath('//*[@class="product-base"]')
-		print products
+		product=sel.xpath('//*[@class="product-base"]')
+		print product
