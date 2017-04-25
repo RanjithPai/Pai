@@ -3,4 +3,4 @@
 
 Problem:
 
-To extract product data like images, desciption, price etc from www.mynthra.com
+To extract product data like images, desciption, price etc from www.myntra.com
