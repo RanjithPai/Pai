@@ -19,6 +19,7 @@ class ProductsSpider(Spider):
 		
 		#print (products)
 		for product in products:
+			url=product.xpath('.//@href').extract()
 			brand=product.xpath('.//*[@class="product-brand"]/text()').extract()
 			description=product.xpath('.//*[@class="product-product"]/text()').extract()
 			actual_price=(product.xpath('.//*[@class="product-strike"]/text()').extract() or product.xpath('.//*[@class="product-price"]/span/text()').extract()) 
@@ -28,8 +29,10 @@ class ProductsSpider(Spider):
 			discount_percentage=product.xpath('.//*[@class="product-discountPercentage"]/text()').extract()
 
 			yield{
+			'Url':url,
 			'brand':brand,
 			'Description':description,
 			'Actual_price':actual_price,
 			'Discount_price':discount_price,
 			'Discount_percentage':discount_percentage}
+			
